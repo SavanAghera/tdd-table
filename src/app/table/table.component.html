@@ -1,0 +1,19 @@
+<div>
+    <h1 class="form-title">Create Form</h1>
+    <form >
+        <input type="text" [(ngModel)]='firstName' name='firstName'/>
+        <input type="text" [(ngModel)]='lastName' name='lastName'/>
+    </form>
+    
+    <button id='addBtn' *ngIf="!isEdit"  (click)="addValue()">add</button>
+    <button id='updateBtn' *ngIf="isEdit" (click)='updateValue()'>update</button>
+
+    <hr/>
+    <table border="1" align="center">
+        <tr *ngFor="let value of formValues">
+            <td>{{value.firstName}}</td>
+            <td>{{value.lastName}}</td>
+            <td><button id='editbutton' (click)='editValue(value.id)'>Edit</button></td>
+        </tr>
+    </table>
+</div>
